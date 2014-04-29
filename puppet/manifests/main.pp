@@ -38,6 +38,11 @@ addMysql { 'jink_db':
 }
 
 addMysql { 'pp_admin_db':
-    user => 'panda_usr',
-    password => 'panda_pass'
+    user => 'pp_admin_user',
+    password => 'iPMk4Qmc'
+}
+
+addMysql { 'pp_app_db':
+    user => 'pp_app_user',
+    password => 'SXnkpXrF'
 }
