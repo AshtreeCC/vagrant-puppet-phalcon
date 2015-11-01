@@ -4,7 +4,7 @@ stage { 'prepare':
 
 class {
 	'bootstrap':      stage => prepare;
-	'tools':          stage => main;
+	'tools':          stage => prepare;
 	'php':            stage => main;
 	'nginx':          stage => main;
 	'mysql':          stage => main;
@@ -27,6 +27,11 @@ addServer {'jink':
 	root => '/vagrant/www/jink.dev/public/'
 }
 
+addServer {'sophia.admin':
+	site => 'admin.sophiazemi.dev',
+	root => '/vagrant/www/admin.sophiazemi.dev/public/'
+}
+
 addServer {'panda.admin':
 	site => 'admin.ponderingpanda.dev',
 	root => '/vagrant/www/admin.ponderingpanda.dev/public/'
@@ -35,6 +40,16 @@ addServer {'panda.admin':
 addMysql { 'jink_db':
     user => 'jink_usr',
     password => 'jink_pass'
+}
+
+addMysql { 'media_db':
+    user => 'media_usr',
+    password => 'media_pass'
+}
+
+addMysql { 'sz_admin_db':
+    user => 'sz_admin_usr',
+    password => 'sz_admin_pass'
 }
 
 addMysql { 'pp_admin_db':
